@@ -8,8 +8,8 @@ class User(models.Model):
 
 
 class Coord(models.Model):
-    latitude = models.DecimalField(max_length=10, decimal_places=8, unique=True)
-    longitube = models.DecimalField(max_length=10, decimal_places=8, unique=True)
+    latitude = models.DecimalField(max_digits=10, decimal_places=8, unique=True)
+    longitube = models.DecimalField(max_digits=10, decimal_places=8, unique=True)
     height = models.IntegerField(unique=True)
 
 
