@@ -41,3 +41,25 @@ class ImageSerializer(serializers.ModelSerializer):
             'title',
             'img'
         )
+
+
+class StatusSerializer(WritableNestedModelSerializer):
+    user_id = UserSerializer()
+    coord_id = CoordSerializer()
+    level = LevelPointSerializer()
+    photo = ImageSerializer()
+
+    class Meta:
+        model = StatusAdd
+        fields = (
+            'glory_title',
+            'title',
+            'other_titles',
+            'connect',
+            'date',
+            'coord_id',
+            'user_id',
+            'photo',
+            'status',
+            'level'
+        )
