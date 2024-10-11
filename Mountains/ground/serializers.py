@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from drf_writable_nested.serializers import WritableNestedModelSerializer
+from drf_writable_nested import WritableNestedModelSerializer
 from .models import StatusAdd, Coord, Image, User, LevelPoint
 
 
@@ -40,4 +40,26 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'img'
+        )
+
+
+class StatusSerializer(WritableNestedModelSerializer):
+    user_id = UserSerializer()
+    coord_id = CoordSerializer()
+    level = LevelPointSerializer()
+    photo = ImageSerializer()
+
+    class Meta:
+        model = StatusAdd
+        fields = (
+            'glory_title',
+            'title',
+            'other_titles',
+            'connect',
+            'date',
+            'coord_id',
+            'user_id',
+            'photo',
+            'status',
+            'level'
         )
