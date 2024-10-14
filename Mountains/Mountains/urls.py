@@ -17,10 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from ground.views import StatusAPIView
+from ground.views import StatusAPIView, ImageAPIView,UserAPIView,LevelAPIView,CoordAPIView
 
 router = routers.DefaultRouter()
 router.register(r'submitdata', StatusAPIView)
+
+"""
+Ниже в комментарии приведены роутеры, для работы с каждым APIView по отдельности
+"""
+# router.register(r'user', UserAPIView)
+# router.register(r'image', ImageAPIView)
+# router.register(r'level', LevelAPIView)
+# router.register(r'coord', CoordAPIView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
